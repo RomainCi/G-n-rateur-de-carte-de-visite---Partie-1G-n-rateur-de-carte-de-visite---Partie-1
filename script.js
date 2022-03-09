@@ -17,6 +17,17 @@ let Objecte = {
       toto: zaza,
     };
   },
+  methods: {
+    change: function () {
+      if (this.readonly == false) {
+        this.readonly = true;
+        console.log("false");
+      } else {
+        this.readonly = false;
+        console.log("true");
+      }
+    },
+  },
   template: `<h1 v-bind:class="titleClass">{{titre}}</h1>
             <p :class="verte">nom:{{nom}} </p>
             <p :class="verte">prenom:{{prenom}}</p>
@@ -24,12 +35,10 @@ let Objecte = {
             <p :class="verte">poste: {{poste}}</p>
             <p :class="verte">email: {{email}}</p>
             <p :class="verte">tel {{tel}}</p>
-            <input :value="valeur" :placeholder="inside" :readonly="readonly"/>
-            <button @click="valeur = toto ">Click</button>
-            <button @click="readonly = lol">deverouille</button>
-            <button @click="readonly = readonly">verouiller</button>`,
+            <input class="ah" :placeholder="inside" :readonly="readonly"/>
+            <button @click="ah = change()">deverouille</button>`,
 };
 let bob = "arthur";
 let zaza = "romain";
-
+console.log("hello");
 Vue.createApp(Objecte).mount("#root");
